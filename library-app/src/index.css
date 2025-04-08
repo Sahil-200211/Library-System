@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 :root{
   --background-primary: #F8F4FF;
@@ -10,10 +10,9 @@
   --box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-.oswald {
-  font-family: "Oswald", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
+.ubuntu-regular {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -22,6 +21,8 @@ html, body, #root {
   height: 100%;
   background-color: var(--background-primary);
   color: var(--text);
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
 }
 
 /* 1. Use a more-intuitive box-sizing model */
@@ -39,6 +40,8 @@ body {
   line-height: 1.5;
   /* 4. Improve text rendering */
   -webkit-font-smoothing: antialiased;
+  /* font-family: "Oswald", sans-serif;
+  font-weight: 400; */
 }
 
 /* 5. Improve media defaults */

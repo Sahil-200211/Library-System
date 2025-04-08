@@ -1,17 +1,54 @@
-.modal-bg{
-    z-index: 1;
-    background-color: rgba(0,0,0,0.2);
+/* .modal-bg {
     width: 100%;
     height: 100%;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal {
+    width: 40%;
+    background-color: var(--background-primary);
+    border-radius: 16px;
+    box-shadow: var(--box-shadow);
+    padding: 40px 16px 80px 16px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .modal-exit {
     position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 10;
+    color: var(--secondary); 
+    cursor: pointer;
+    align-self: flex-end;
+  } */
+
+  .modal-bg {
+    z-index: 1;
+    backdrop-filter: blur(4px);
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%;
+    position: fixed;
     top: 0;
     left: 0;
-}
-
-.modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .modal {
     z-index: 5;
     width: 40%;
-    height:fit-content;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,17 +56,43 @@
     border-radius: 16px;
     box-shadow: var(--box-shadow);
     background-color: var(--background-primary);
-    position:fixed;
+    padding: 40px 16px 80px 16px;
+    position: relative;
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-bottom: 80px;
-    padding-top: 40px;
-}
-
-.modal-exit{
-    align-self: flex-start;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .modal-exit {
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    font-size: 20px;
     cursor: pointer;
-}
+    user-select: none;
+  }
+  
+  /* Animations */
+  
+  .fade-in {
+    opacity: 1;
+  }
+  
+  .fade-out {
+    opacity: 0;
+  }
+  
+  .scale-in {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  
+  .scale-out {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+  }
+  
+  

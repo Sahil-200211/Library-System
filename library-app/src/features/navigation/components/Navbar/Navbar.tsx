@@ -1,75 +1,168 @@
-import React, {useRef} from 'react';
-import {Link, useNavigate} from 'react-router-dom';
+// import React, {useRef} from 'react';
+// import {Link, useNavigate} from 'react-router-dom';
+
+// import './Navbar.css';
+// import { AppDispatch, RootState } from '../../../../redux/ReduxStore';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { setDisplayLogin } from '../../../../redux/slices/ModalSlice';
+// import { LocalLibrary, Search } from '@mui/icons-material';
+
+// export const Navbar:React.FC = () => {
+
+//     const searchRef = useRef<HTMLInputElement>(null);
+//     const authState = useSelector((state:RootState) => state.authentication);
+
+//     const navigate = useNavigate();
+
+//     const dispatch:AppDispatch = useDispatch();
+
+//     const handleEnterKey = (e:React.KeyboardEvent<HTMLInputElement>) => {
+//         if(e.key === 'Enter' && searchRef && searchRef.current && searchRef.current.value.length > 0){
+//             navigate(`/catalog?barcode=${searchRef.current.value}&title=${searchRef.current.value}&description=${searchRef.current.value}`);
+//             searchRef.current.value = '';
+//         }
+//     }
+
+//     const handleSearchonClicked = () => {
+//         if(searchRef && searchRef.current && searchRef.current.value.length > 0){
+//             navigate(`/catalog?barcode=${searchRef.current.value}&title=${searchRef.current.value}&description=${searchRef.current.value}`);
+//             searchRef.current.value = '';
+//         }
+//     }
+
+//     const navigateToProfile = () => {
+//         if(authState.loggedInUser) navigate(`/profile/${authState.loggedInUser._id}`);
+//     }
+
+//     const toggleLogin = () => {
+//         dispatch(setDisplayLogin(true));
+//     }
+
+//     return(
+//         <nav className="navbar">
+//             <Link to="/" className="navbar-logo-section">
+//                 <LocalLibrary sx={{
+//                     fontSize: "3rem"
+//                 }} />
+//                 <h1>Scriptoria</h1>
+//             </Link>
+//             <div className="navbar-option-section">
+//                 <Link to="/catalog" className="navbar-option navbar-link">
+//                     <h2 className='navbar-font'>View Catalog</h2>
+//                 </Link>
+//                 <div className="navbar-search-box">
+//                     <input className="navbar-search-input" placeholder="Search Catalog" onKeyDown={handleEnterKey} ref={searchRef} />
+//                     <Search onClick={handleSearchonClicked}
+//                         sx={{
+//                             cursor: "pointer",
+//                             fontSize: "2rem"
+//                         }} 
+//                     />
+//                 </div>
+//                 {
+//                     authState.loggedInUser ?
+//                         <div className="navbar-option" onClick={navigateToProfile}>
+//                             <h2 className="navbar-font">{authState.loggedInUser.firstName}'s Account</h2>
+//                         </div>
+//                         :
+//                         <div className="navbar-option" onClick={toggleLogin}>
+//                             <h2 className="navbar-font">Login</h2>
+//                         </div>
+//                 }
+//             </div>
+//         </nav>
+//     )
+// }
+
+import React, { useRef } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 import './Navbar.css';
 import { AppDispatch, RootState } from '../../../../redux/ReduxStore';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDisplayLogin } from '../../../../redux/slices/ModalSlice';
-import { LocalLibrary, Search } from '@mui/icons-material';
 
-export const Navbar:React.FC = () => {
+import { LocalLibrary, Search } from '@mui/icons-material';
+import { Box, Button, IconButton, InputBase, Paper, Typography } from '@mui/material';
+
+export const Navbar: React.FC = () => {
 
     const searchRef = useRef<HTMLInputElement>(null);
-    const authState = useSelector((state:RootState) => state.authentication);
+    const authState = useSelector((state: RootState) => state.authentication);
 
     const navigate = useNavigate();
+    const dispatch: AppDispatch = useDispatch();
 
-    const dispatch:AppDispatch = useDispatch();
-
-    const handleEnterKey = (e:React.KeyboardEvent<HTMLInputElement>) => {
-        if(e.key === 'Enter' && searchRef && searchRef.current && searchRef.current.value.length > 0){
+    const handleEnterKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter' && searchRef.current?.value.trim()) {
             navigate(`/catalog?barcode=${searchRef.current.value}&title=${searchRef.current.value}&description=${searchRef.current.value}`);
             searchRef.current.value = '';
         }
     }
 
     const handleSearchonClicked = () => {
-        if(searchRef && searchRef.current && searchRef.current.value.length > 0){
+        if (searchRef.current?.value.trim()) {
             navigate(`/catalog?barcode=${searchRef.current.value}&title=${searchRef.current.value}&description=${searchRef.current.value}`);
             searchRef.current.value = '';
         }
     }
 
     const navigateToProfile = () => {
-        if(authState.loggedInUser) navigate(`/profile/${authState.loggedInUser._id}`);
+        if (authState.loggedInUser) navigate(`/profile/${authState.loggedInUser._id}`);
     }
 
     const toggleLogin = () => {
         dispatch(setDisplayLogin(true));
     }
 
-    return(
+    return (
         <nav className="navbar">
             <Link to="/" className="navbar-logo-section">
-                <LocalLibrary sx={{
-                    fontSize: "3rem"
-                }} />
-                <h1>Scriptoria</h1>
+                <LocalLibrary sx={{ fontSize: "3rem" }} />
+                <Typography variant="h4" sx={{ marginLeft: "8px", fontWeight: "bold" }}>Scriptoria</Typography>
             </Link>
-            <div className="navbar-option-section">
+
+            <Box className="navbar-option-section">
                 <Link to="/catalog" className="navbar-option navbar-link">
-                    <h2 className='navbar-font'>View Catalog</h2>
+                    <Typography variant="h6" className="navbar-font" sx={{
+                            transition: 'all 0.3s ease-in-out',
+                            '&:hover': {
+                                transform: 'scale(1.1)',
+                                color: 'white',
+                            },
+                            }}>View Catalog
+                    </Typography>
                 </Link>
-                <div className="navbar-search-box">
-                    <input className="navbar-search-input" placeholder="Search Catalog" onKeyDown={handleEnterKey} ref={searchRef} />
-                    <Search onClick={handleSearchonClicked}
-                        sx={{
-                            cursor: "pointer",
-                            fontSize: "2rem"
-                        }} 
+
+                <Paper
+                    component="form"
+                    className="navbar-search-box"
+                    elevation={3}
+                    sx={{ borderRadius: "35px", display: 'flex', alignItems: 'center', padding: "2px 8px" }}
+                >
+                    <InputBase
+                        className="navbar-search-input"
+                        placeholder="Search Catalog"
+                        inputRef={searchRef}
+                        onKeyDown={handleEnterKey}
+                        sx={{ ml: 1, flex: 1, color: "inherit" }}
                     />
-                </div>
+                    <IconButton onClick={handleSearchonClicked}>
+                        <Search />
+                    </IconButton>
+                </Paper>
+
                 {
                     authState.loggedInUser ?
-                        <div className="navbar-option" onClick={navigateToProfile}>
-                            <h2 className="navbar-font">{authState.loggedInUser.firstName}'s Account</h2>
-                        </div>
+                        <Button variant="contained" color="primary" onClick={navigateToProfile} sx={{ marginRight: "10px", textTransform: "none", fontSize: "18px", borderRadius: "10px", transition: 'all 0.3s ease-in-out', '&:hover' : {transform: 'scale(1.05)'}, }}>
+                            {authState.loggedInUser.firstName}'s Account
+                        </Button>
                         :
-                        <div className="navbar-option" onClick={toggleLogin}>
-                            <h2 className="navbar-font">Login</h2>
-                        </div>
+                        <Button variant="outlined" color="inherit" onClick={toggleLogin} sx={{ marginRight: "10px", textTransform: "none", fontSize: "18px", borderRadius: "10px" }}>
+                            Login
+                        </Button>
                 }
-            </div>
+            </Box>
         </nav>
     )
 }
