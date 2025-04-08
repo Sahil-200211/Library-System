@@ -1,4 +1,4 @@
-.footer {
+/* .footer {
     width: 100%;
     height: 80px;
     display: flex;
@@ -64,5 +64,113 @@
 .close-button:hover {
     cursor: pointer;
     background-color: var(--background-secondary);
+    border: 2px solid var(--primary);
+} */
+
+.footer {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--primary);
+    color: var(--text-secondary);
+}
+
+.footer-text {
+    font-size: .85rem;
+    transition: all 0.3s ease;
+}
+
+.footer-text:hover {
+    color: var(--background-secondary);
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.footer-social-cluster {
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.footer-social-text {
+    font-size: .85rem;
+    margin-right: 10px;
+}
+
+.footer-social {
+    cursor: pointer;
+    margin: 0 8px;
+    transition: color 0.3s ease;
+}
+
+.footer-social:hover {
+    color: var(--background-secondary);
+}
+
+/* Modal Styling */
+
+.modal-backdrop {
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
+}
+
+.modal-backdrop.hide {
+    animation: fadeOut 0.3s forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; }
+}
+
+.modal-box {
+    background: var(--background-primary);
+    color: var(--primary);
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transform: translateY(-20px);
+    opacity: 0;
+    animation: popIn 0.3s forwards;
+}
+
+@keyframes popIn {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close-button {
+    width: 80%;
+    height: 2.5rem;
+    font-size: 1.25rem;
+    border-radius: 12px;
+    border: none;
+    background-color: var(--secondary);
+    margin-top: 16px;
+    transition: all 0.3s ease;
+}
+
+.close-button:hover {
+    cursor: pointer;
+    background-color: var(--background-primary);
     border: 2px solid var(--primary);
 }
