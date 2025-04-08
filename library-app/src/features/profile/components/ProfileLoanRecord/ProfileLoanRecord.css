@@ -1,0 +1,17 @@
+.profile-record {
+    width: 100%;
+    height: fit-content;
+    border-bottom: 1px solid rgba(0,0,0,.2);
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.status-returned {
+    color: green;
+    font-weight: bold;
+}
+
+.status-loaned {
+    color: red;
+    font-weight: bold;
+}

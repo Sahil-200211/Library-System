@@ -1,0 +1,33 @@
+.upcoming-events {
+    width: 98%;
+    height: fit-content;
+    border-radius: 10px;
+    padding: 20px;  
+    background-color: var(--background-primary);
+    margin-top: 1px;
+    margin-left: 10px;
+}
+
+.upcoming-events-header-group {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+h4 {
+    margin-left: 20px;
+    text-decoration: underline;
+}
+
+h3 {
+    margin-left: 5px;
+}
+
+.upcoming-events-event {
+    box-shadow: var(--box-shadow);
+    width: 98%;
+    border-radius: 12px;
+    padding: 16px;
+    margin-top:12px ;
+}

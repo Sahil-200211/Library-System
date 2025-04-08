@@ -1,0 +1,10 @@
+.catalog-overview {
+    width: 100%;
+    height: fit-content;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+h4{
+    text-decoration: none;
+}
