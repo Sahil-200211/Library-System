@@ -6,6 +6,7 @@ import './BookCheckin.css';
 import { AppDispatch, RootState } from "../../../../redux/ReduxStore";
 import { checkinBook, setCurrentBook } from "../../../../redux/slices/BookSlice";
 import { setDisplayLoan } from "../../../../redux/slices/ModalSlice";
+import { Button } from "@mui/material";
 
 export const BookCheckin:React.FC = () => {
 
@@ -35,7 +36,27 @@ export const BookCheckin:React.FC = () => {
                     <h3>Check In Book Titled: {book.title}</h3>
                     <h4>Check In Employee ID: </h4>
                     <input className="book-checkin-input" value={user._id} disabled />
-                    <button className="book-checkin-button" onClick={checkin}>Check In Book</button>
+                    <Button 
+                    variant="contained"
+                    onClick={checkin}
+                    sx={{
+                        width: '100%',
+                        height: '2.1rem',
+                        borderRadius: '20px',
+                        backgroundColor: 'var(--secondary)',
+                        border: '1px solid black',
+                        '&:hover': {
+                        backgroundColor: 'var(--background-primary)',
+                        border:'2px solid var(--secondary)',
+                        color: 'var(--secondary)',
+                        },
+                        color: 'black',
+                        transition: 'all 0.3s ease',
+                        marginTop: '1rem',
+                    }}
+                    >
+                    Check In
+                    </Button>
                 </form>
             }
         </div>

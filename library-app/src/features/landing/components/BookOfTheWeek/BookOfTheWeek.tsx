@@ -1,25 +1,55 @@
 import React from "react";
 import './BookOfTheWeek.css'
 import { BookInformation } from "../../../book";
+import { Button } from "@mui/material";
+import { useNavigate } from 'react-router-dom';
 
 export const BookOfTheWeek:React.FC = () => {
+
+    const navigate = useNavigate();
+
+    const handleBookClick = () => {
+        navigate(`/resource/0439784549`);
+    }
+
     return (
         <div className="book-of-the-week">
             <h1>Book of the Week</h1>
+            <Button 
+                    variant="outlined"
+                    onClick={handleBookClick}
+                    sx={{
+                        width: '15%',
+                        height: '2.1rem',
+                        borderRadius: '20px',
+                        border: '1px solid var(--secondary)',
+                        '&:hover': {
+                        backgroundColor: 'var(--background-primary)',
+                        border:'2px solid var(--secondary)',
+                        color: 'var(--secondary)',
+                        },
+                        color: 'black',
+                        transition: 'all 0.3s ease',
+                        marginLeft: '83%',
+                        top: '-50.5px',
+                    }}
+                    >
+                    See More
+            </Button>
             <BookInformation book={{
                 _id: "9.75",
                 barcode: "31071980",
-                cover: "https://m.media-amazon.com/images/I/81DN1723hUL._SL1500_.jpg",
+                cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1587697303i/1.jpg",
                 title: "Harry Potter and the Half-Blood Prince",
                 authors: ["J.K. Rowling"],
-                description: "When Dumbledore arrives at Privet Drive one summer night to collect Harry Potter, his wand hand is blackened and shrivelled, but he does not reveal why. Secrets and suspicion are spreading through the wizarding world, and Hogwarts itself is not safe. Harry is convinced that Malfoy bears the Dark Mark: there is a Death Eater amongst them.Harry will need powerful magic and true friends as he explores Voldemort's darkest secrets, and Dumbledore prepares him to face his destiny.",
+                description: "Harry Potter and the Half-Blood Prince follows Harry's sixth year at Hogwarts, where he uncovers dark secrets about Voldemort’s past, discovers a mysterious Potions book belonging to the Half-Blood Prince, and faces devastating loss as the wizarding world prepares for war.",
                 subjects: ["Magic", "Adventure"],
                 publicationDate: new Date(2014-9-1),
                 publisher: "Bloomsbury Children's Book",
                 pages: 560,
                 genre: "Fantasy",
-                records: []
-            }} />
+                records: [],
+            }}/>
         </div>
     )
 }

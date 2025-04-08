@@ -5,4 +5,5 @@
     padding: 16px;
     box-shadow: var(--box-shadow);
     background-color: var(--background-primary);
+    margin-top: 5px;
 }

@@ -5,6 +5,7 @@ import './BookCheckout.css';
 import { AppDispatch, RootState } from "../../../../redux/ReduxStore";
 import { checkoutBook, setCurrentBook } from "../../../../redux/slices/BookSlice";
 import { setDisplayLoan } from "../../../../redux/slices/ModalSlice";
+import { Button } from "@mui/material";
 
 export const BookCheckout:React.FC = () => {
     const user = useSelector((state:RootState) => state.authentication.loggedInUser);
@@ -37,7 +38,27 @@ export const BookCheckout:React.FC = () => {
                     <input className="book-checkout-input" placeholder="Library Card ID" ref={libraryCardRef} />
                     <h4>Checkout Employee ID: </h4>
                     <input className="book-checkout-input" value={user._id} disabled />
-                    <button className="book-checkout-button" onClick={checkout}>Loan Book</button>
+                    <Button 
+                    variant="contained"
+                    onClick={checkout}
+                    sx={{
+                        width: '100%',
+                        height: '2.1rem',
+                        borderRadius: '20px',
+                        backgroundColor: 'var(--secondary)',
+                        border: '1px solid black',
+                        '&:hover': {
+                        backgroundColor: 'var(--background-primary)',
+                        border:'2px solid var(--secondary)',
+                        color: 'var(--secondary)',
+                        },
+                        color: 'black',
+                        transition: 'all 0.3s ease',
+                        marginTop: '1rem',
+                    }}
+                    >
+                    Loan Book
+                    </Button>
                 </form>
             }
         </div>
