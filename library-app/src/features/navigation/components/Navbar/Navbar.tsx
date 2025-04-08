@@ -79,7 +79,7 @@ export const Navbar: React.FC = () => {
 
                 {
                     authState.loggedInUser ?
-                        <Button variant="contained" color="primary" onClick={navigateToProfile} sx={{ marginRight: "10px", textTransform: "none", fontSize: "18px", borderRadius: "10px", transition: 'all 0.3s ease-in-out', '&:hover' : {transform: 'scale(1.05)'}, }}>
+                        <Button variant="contained" color="inherit" onClick={navigateToProfile} sx={{ marginRight: "10px", textTransform: "none", fontSize: "18px", borderRadius: "10px", transition: 'all 0.3s ease-in-out', '&:hover' : {transform: 'scale(1.05)'}, }}>
                             {authState.loggedInUser.firstName}'s Account
                         </Button>
                         :
