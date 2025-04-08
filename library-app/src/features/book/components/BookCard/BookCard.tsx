@@ -8,6 +8,7 @@ import { AppDispatch, RootState } from "../../../../redux/ReduxStore";
 import { useEffect, useState } from "react";
 import { setCurrentBook } from "../../../../redux/slices/BookSlice";
 import { setDisplayLoan } from "../../../../redux/slices/ModalSlice";
+import { Button } from "@mui/material";
 
 interface BookCardProps {
     book : Book
@@ -19,13 +20,12 @@ export const BookCard:React.FC<BookCardProps> = ({book}) => {
 
     const dispatch:AppDispatch = useDispatch();
 
-    const [available, setAvailable] = useState<boolean>(() => {
+    const [available] = useState<boolean>(() => {
         if(book.records.length === 0) return true;
 
         return book.records[0].status === 'AVAILABLE';
     })
 
-    const [buttonClass, setButtonClass] = useState<string>("");
 
     const handleLoan = (e:React.MouseEvent<HTMLButtonElement>) => {
         e.stopPropagation();
@@ -56,8 +56,6 @@ export const BookCard:React.FC<BookCardProps> = ({book}) => {
             c += " checkin";
         }
 
-        setButtonClass(c);
-
     }, [available, user?.type, book.records]);
 
     return (
@@ -68,7 +66,25 @@ export const BookCard:React.FC<BookCardProps> = ({book}) => {
                 <h3 className="book-card-author">{mapAuthorsToString(book)}</h3>
                 <p className="book-card-description">{book.description}</p>
             </div>
-            <button className={buttonClass} onClick={handleLoan}>Status: {available ? "AVAILABLE" : "UNAVAILABLE"}</button>
+            <Button 
+                    variant="contained"
+                    onClick={handleLoan}
+                    sx={{
+                        width: '90%',
+                        height: '2.5rem',
+                        borderRadius: '12px',
+                        backgroundColor: available ? 'var(--secondary)' : '#c50609',
+                        '&:hover': {
+                        backgroundColor: 'var(--background-primary)',
+                        border: available ? '2px solid var(--secondary)' : '2px solid #CB4C4E',
+                        color: available ? 'var(--secondary)' : '#CB4C4E',
+                        },
+                        color: 'white',
+                        transition: 'all 0.3s ease',
+                    }}
+                    >
+                    Status: {available ? "AVAILABLE" : "UNAVAILABLE"}
+            </Button>
         </div>
     )
 }
