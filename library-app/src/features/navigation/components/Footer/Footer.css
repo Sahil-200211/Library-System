@@ -1,72 +1,3 @@
-/* .footer {
-    width: 100%;
-    height: 80px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: var(--primary);
-    color: var(--text-secondary);
-}
-
-.footer-text {
-    font-size: .85rem;
-}
-
-.footer-text:hover {
-    color: var(--background-secondary);
-    font-weight: 600;
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-.footer-social-cluster {
-    height: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-.footer-social-text {
-    font-size: .85rem;
-    margin-right: 10px;
-}
-
-.footer-social {
-    cursor: pointer;
-    margin-right: 8px;
-    margin-left: 8px;
-}
-
-.footer-social:hover {
-    color: var(--background-secondary);
-}
-
-.modal-box {
-    background: var(--background-secondary);
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 400px;
-    margin: 100px auto;
-    text-align: center;
-    box-shadow: var(--box-shadow);
-}
-
-.close-button {
-    width: 80%;
-    height: 2.5rem;
-    font-size: 1.25rem;
-    border-radius: 12px;
-    border: none;
-    background-color: var(--secondary);
-    margin-top: 16px;
-}
-
-.close-button:hover {
-    cursor: pointer;
-    background-color: var(--background-secondary);
-    border: 2px solid var(--primary);
-} */
-
 .footer {
     width: 100%;
     height: 80px;
@@ -114,15 +45,19 @@
 /* Modal Styling */
 
 .modal-backdrop {
-    backdrop-filter: blur(5px);
-    background-color: rgba(0, 0, 0, 0.4);
     position: fixed;
-    inset: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    animation: fadeIn 0.3s forwards;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.3s ease;
 }
 
 .modal-backdrop.hide {
