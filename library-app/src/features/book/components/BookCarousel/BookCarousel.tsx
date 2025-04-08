@@ -40,3 +40,6 @@ export const BookCarousel:React.FC<BookCarouselProps> = ({books}) => {
         </div>
     )
 }
+
+
+
