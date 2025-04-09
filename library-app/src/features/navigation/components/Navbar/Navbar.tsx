@@ -9,6 +9,7 @@ import { setDisplayLogin } from '../../../../redux/slices/ModalSlice';
 import { LocalLibrary, Search } from '@mui/icons-material';
 import { Box, Button, IconButton, InputBase, Paper, Typography } from '@mui/material';
 
+
 export const Navbar: React.FC = () => {
 
     const searchRef = useRef<HTMLInputElement>(null);
