@@ -83,7 +83,7 @@ export const Navbar: React.FC = () => {
                             {authState.loggedInUser.firstName}'s Account
                         </Button>
                         :
-                        <Button variant="outlined" color="inherit" onClick={toggleLogin} sx={{ marginRight: "10px", textTransform: "none", fontSize: "18px", borderRadius: "10px" }}>
+                        <Button variant="contained" color="warning" onClick={toggleLogin} sx={{ marginRight: "10px", textTransform: "none", fontSize: "18px", borderRadius: "10px" }}>
                             Login
                         </Button>
                 }
