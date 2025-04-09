@@ -115,7 +115,6 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ toggleLogin }) => {
       <FormControl fullWidth sx={{ mt: 2 }}>
         <InputLabel>Role</InputLabel>
         <Select value={selectedRole} onChange={(e) => setSelectedRole(e.target.value)} label="Role">
-          <MenuItem value="ADMIN">Admin</MenuItem>
           <MenuItem value="EMPLOYEE">Employee</MenuItem>
           <MenuItem value="PATRON">Patron</MenuItem>
         </Select>
