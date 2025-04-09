@@ -25,7 +25,9 @@ export const LoginRegisterModal:React.FC = () => {
 
     useEffect(() => {
         if(authState.loggedInUser){
-            closeModal();
+            setTimeout(() => {
+                closeModal();
+            }, 2000);
         }
 
         return(() => {

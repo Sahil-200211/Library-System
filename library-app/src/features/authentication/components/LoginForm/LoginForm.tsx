@@ -1,52 +1,89 @@
-import React, {useState, useRef} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {AppDispatch, RootState} from '../../../../redux/ReduxStore';
+import { AppDispatch, RootState } from '../../../../redux/ReduxStore';
 import { loginUser } from '../../../../redux/slices/AuthenticationSlice';
 
+import { Snackbar, TextField, Button, Typography } from '@mui/material';
 
-import './LoginForm.css';
-import { User } from '../../../../models/User';
-
-interface LoginFormProps{
-    toggleRegister():void;
+interface LoginFormProps {
+    toggleRegister(): void;
 }
 
-export const LoginForm:React.FC<LoginFormProps> = ({toggleRegister}) => {
+export const LoginForm: React.FC<LoginFormProps> = ({ toggleRegister }) => {
 
-    
-    const emailRef = useRef<HTMLInputElement>(null);
-    const passwordRef = useRef<HTMLInputElement>(null);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
+    const [snackbarMessage, setSnackbarMessage] = useState<React.ReactNode>(null);
+    const [attemptedLogin, setAttemptedLogin] = useState(false);
 
-    const auth = useSelector((state:RootState) => state.authentication);
-    const dispatch:AppDispatch = useDispatch();
+    const auth = useSelector((state: RootState) => state.authentication);
+    const dispatch: AppDispatch = useDispatch();
 
-    const handleLoginUser = async (e:React.MouseEvent<HTMLButtonElement>) => {
+    const handleLoginUser = (e: React.FormEvent) => {
         e.preventDefault();
-        if(emailRef && emailRef.current && passwordRef && passwordRef.current){
-            dispatch(loginUser({
-                email: emailRef.current.value,
-                password: passwordRef.current.value
-            }));
-        }
+        setAttemptedLogin(true);
+        dispatch(loginUser({ email, password }));
     }
 
+    useEffect(() => {
+        if(attemptedLogin) {
+            if (auth.error) {
+                setSnackbarOpen(true);
+                setSnackbarMessage("Invalid Credentials! ❌");
+            }
+            if (auth.loggedInUser) {
+                setSnackbarOpen(true);
+                setSnackbarMessage("Welcome Back " + auth.loggedInUser.firstName + "! " + "🥳🥳");
+            }
+        }
+    }, [auth.error, auth.loggedInUser]);
+
     return (
-        <form className='login form'>
-            <h2>Please Login</h2>
-            {auth.error ? <p className="login-form-error">Username or Password Incorrect</p> : <></>}
-            <div className="login-form-input-group">
-                <h6>Email</h6>
-                <input className="login-form-input" placeholder='Email' name='email' required ref={emailRef} />
-            </div>
-            <div className="login-form-input-group">
-                <h6>Password</h6>
-                <input className="login-form-input" placeholder='Password' name='password' type='password' required ref={passwordRef} />
-            </div>
-            <button className="login-form-submit" onClick={handleLoginUser}>Login</button>
-            <p>
-                Don't have an Account ?
-                <span className="login-form-register" onClick={toggleRegister}>Create one HERE!</span>
-            </p>
-        </form>
+        <>
+            <form className='login form' onSubmit={handleLoginUser}>
+                <Typography variant="h3" mb={2}>Please Login</Typography>
+
+                <TextField
+                    label="Email"
+                    variant="outlined"
+                    fullWidth
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    margin="normal"
+                />
+
+                <TextField
+                    label="Password"
+                    variant="outlined"
+                    type="password"
+                    fullWidth
+                    required
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    margin="normal"
+                />
+
+                <Button type="submit" variant="contained" fullWidth sx={{ mt: 2 }}>
+                    Login
+                </Button>
+
+                <Typography variant="body2" mt={2}>
+                    Don't have an Account?{' '}
+                    <span className="login-form-register" onClick={toggleRegister} style={{ cursor: 'pointer', color: '#1976d2' }}>
+                        Create one HERE!
+                    </span>
+                </Typography>
+            </form>
+
+            <Snackbar
+                open={snackbarOpen}
+                autoHideDuration={3000}
+                message={snackbarMessage}
+                onClose={() => setSnackbarOpen(false)}
+                anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+            />
+        </>
     )
 }
