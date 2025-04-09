@@ -76,6 +76,26 @@ export const Navbar: React.FC = () => {
                         <Search />
                     </IconButton>
                 </Paper>
+                {
+                        authState.loggedInUser?.type === "EMPLOYEE" && (
+                            <Button 
+                                variant="contained" 
+                                color="success" 
+                                onClick={() => navigate('/create-book')}
+                                sx={{ 
+                                    marginRight: "10px", 
+                                    textTransform: "none", 
+                                    fontSize: "18px", 
+                                    borderRadius: "10px",
+                                    transition: 'all 0.3s ease-in-out',
+                                    '&:hover': { transform: 'scale(1.05)' },
+                                }}
+                            >
+                                Book Creation
+                            </Button>
+                        )
+                    }
+
 
                 {
                     authState.loggedInUser ?
