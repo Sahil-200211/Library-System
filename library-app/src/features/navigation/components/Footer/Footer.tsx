@@ -32,7 +32,6 @@ export const Footer: React.FC = () => {
             <motion.p className="footer-text" onClick={() => handleOpen("We got a return policy before GTA 6. So return your books on time, or we’ll delay your borrowing privileges… indefinitely. At this rate, you’ll get your next book when GTA 7 is announced.")} whileHover={{scale: 1.05}} transition={{type: "spring", stiffness: 400}}>Return Policy</motion.p>
             <motion.p className="footer-text" onClick={() => handleOpen("With great power comes great responsibility… and that includes returning books on time. If you're late, expect Spider-Man to swing by and web your wallet!")} whileHover={{scale: 1.05}} transition={{type: "spring", stiffness: 400}}>Late Fees</motion.p> 
             <motion.p className="footer-text" onClick={() => handleOpen("Lose your library card? That’s a de-merit. Do it twice? That’s a double de-merit. Three times? Dwight declares you an enemy of the library. Four times? Kevin drops a pot of chili on your reading list. Five times? Michael bans you but immediately unbans you because he ‘loves books!’ Just… don’t lose it, okay?")} whileHover={{scale: 1.05}} transition={{type: "spring", stiffness: 400}}>Library Card Conditions</motion.p>
-
             <div className="footer-social-cluster">
                 <p className="footer-social-text">Socials</p>
                 <YouTube className="footer-social" onClick={() => openLink("https://youtu.be/CwOrp6Q7kCE?si=mnK313KZ3c8pzdU5")} />
