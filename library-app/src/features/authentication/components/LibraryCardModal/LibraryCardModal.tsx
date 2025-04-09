@@ -1,17 +1,22 @@
 import React from "react";
-
-import { AppDispatch, RootState } from "../../../../redux/ReduxStore";
 import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../../../redux/ReduxStore";
+
 import { setDisplayLibraryCard } from "../../../../redux/slices/ModalSlice";
 import { Modal } from "../../../../components";
 import { RegisterLibraryCardForm } from "../RegisterLibraryCardForm/RegisterLibraryCardForm";
 
-export const LibraryCardModal:React.FC = () => {
-    const dispatch:AppDispatch = useDispatch();
+export const LibraryCardModal: React.FC = () => {
+    const dispatch: AppDispatch = useDispatch();
 
-    const closeModal = () => {
+    const handleClose = () => {
         dispatch(setDisplayLibraryCard(false));
-    }
+    };
 
-    return <Modal content={<RegisterLibraryCardForm />} toggleModal={closeModal} />
-}
+    return (
+        <Modal 
+            content={<RegisterLibraryCardForm />} 
+            toggleModal={handleClose} 
+        />
+    );
+};
