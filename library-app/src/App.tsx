@@ -9,6 +9,7 @@ import ProfilePage from './pages/ProfilePage/ProfilePage';
 import CatalogPage from './pages/CatalogPage/CatalogPage';
 import ResourcePage from './pages/ResourcePage/ResourcePage';
 import CreateBookForm from './pages/BookForm/BookForm';
+import { AnimatePresence } from 'framer-motion';
 
 function App() {
   
@@ -29,15 +30,17 @@ function App() {
 
   return (
    <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<LayoutPage />}>
-        <Route path="" element={<HomePage />} />
-        <Route path="/catalog" element={<CatalogPage />} />
-        <Route path="/resource/:barcode" element={<ResourcePage />} />
-        <Route path="/profile/:userId" element={<ProfilePage />} />
-        <Route path='/create-book' element={<CreateBookForm />} />
-      </Route>
-    </Routes>
+   <AnimatePresence mode='wait'>
+      <Routes>
+        <Route path="/" element={<LayoutPage />}>
+          <Route path="" element={<HomePage />} />
+          <Route path="/catalog" element={<CatalogPage />} />
+          <Route path="/resource/:barcode" element={<ResourcePage />} />
+          <Route path="/profile/:userId" element={<ProfilePage />} />
+          <Route path='/create-book' element={<CreateBookForm />} />
+        </Route>
+      </Routes>
+    </AnimatePresence>
    </BrowserRouter>
   )
 }

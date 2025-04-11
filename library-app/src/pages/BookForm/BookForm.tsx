@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { TextField, Button, Box, Typography, Stack } from '@mui/material';
+import { motion } from 'framer-motion';
 
 const CreateBookForm = () => {
   const [book, setBook] = useState({
@@ -44,26 +45,32 @@ const CreateBookForm = () => {
   };
 
   return (
-    <Box maxWidth={500} mx="auto" p={4}>
-      <Typography variant="h4" mb={2}>Add New Book</Typography>
-      <form onSubmit={handleSubmit}>
-        <Stack spacing={2}>
-          <TextField label="Barcode" name="barcode" onChange={handleChange} required />
-          <TextField label="Cover Image URL" name="cover" onChange={handleChange} required />
-          <TextField label="Title" name="title" onChange={handleChange} required />
-          <TextField label="Authors (comma separated)" name="authors" onChange={handleChange} required />
-          <TextField label="Description" name="description" onChange={handleChange} required multiline rows={4}/>
-          <TextField label="Subjects (comma separated)" name="subjects" onChange={handleChange} required />
-          <TextField label="Publication Date" name="publicationDate" type="date" onChange={handleChange} InputLabelProps={{ shrink: true }} required />
-          <TextField label="Publisher" name="publisher" onChange={handleChange} required />
-          <TextField label="Pages" name="pages" type="number" onChange={handleChange} required />
-          <TextField label="Genre" name="genre" onChange={handleChange} required />
+    <motion.div 
+    initial={{ opacity: 0, y: 100 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -100 }}
+    transition={{ duration: 0.5, ease: "easeInOut" }}>
+      <Box maxWidth={500} mx="auto" p={4}>
+        <Typography variant="h4" mb={2}>Add New Book</Typography>
+        <form onSubmit={handleSubmit}>
+          <Stack spacing={2}>
+            <TextField label="Barcode" name="barcode" onChange={handleChange} required />
+            <TextField label="Cover Image URL" name="cover" onChange={handleChange} required />
+            <TextField label="Title" name="title" onChange={handleChange} required />
+            <TextField label="Authors (comma separated)" name="authors" onChange={handleChange} required />
+            <TextField label="Description" name="description" onChange={handleChange} required multiline rows={4}/>
+            <TextField label="Subjects (comma separated)" name="subjects" onChange={handleChange} required />
+            <TextField label="Publication Date" name="publicationDate" type="date" onChange={handleChange} InputLabelProps={{ shrink: true }} required />
+            <TextField label="Publisher" name="publisher" onChange={handleChange} required />
+            <TextField label="Pages" name="pages" type="number" onChange={handleChange} required />
+            <TextField label="Genre" name="genre" onChange={handleChange} required />
 
-          <Button variant="contained" type="submit">Create Book</Button>
-          {message && <Typography>{message}</Typography>}
-        </Stack>
-      </form>
-    </Box>
+            <Button variant="contained" type="submit">Create Book</Button>
+            {message && <Typography>{message}</Typography>}
+          </Stack>
+        </form>
+      </Box>
+    </motion.div>
   );
 };
 

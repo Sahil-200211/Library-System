@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { AppDispatch, RootState } from "../../redux/ReduxStore";
 import { loadBookByBarcode } from "../../redux/slices/BookSlice";
 import { BookOverview } from "../../features/book/components/BookOverview/BookOverview";
+import { motion } from "framer-motion";
 
 export default function ResourcePage(){
     const dispatch:AppDispatch = useDispatch();
@@ -23,10 +24,16 @@ export default function ResourcePage(){
     }, [bookState.error, barcode]);
 
     return (
-        <div className="page">
-            <div className="page-container">
-                <BookOverview />
+        <motion.div 
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -100 }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}>
+            <div className="page">
+                <div className="page-container">
+                    <BookOverview />
+                </div>
             </div>
-        </div>
+        </motion.div>
     )
 }
