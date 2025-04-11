@@ -48,6 +48,11 @@
     user-select: none;
 }
 
+.book-carousel-right-button:hover {
+    cursor: pointer;
+    background-color: rgba(122, 121, 120, 0.3);
+    border-radius: 100%;
+}
 
 
    
