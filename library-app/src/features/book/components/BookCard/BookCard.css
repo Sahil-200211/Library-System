@@ -1,6 +1,7 @@
 .book-card {
     height: 400px;
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     background-color: var(--background-primary);
     border-radius: 12px;
     padding: 8px;
