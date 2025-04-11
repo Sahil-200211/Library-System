@@ -29,19 +29,19 @@ function App() {
   }, [loggedInUser]) 
 
   return (
-   <BrowserRouter>
-   <AnimatePresence mode='wait'>
-      <Routes>
-        <Route path="/" element={<LayoutPage />}>
-          <Route path="" element={<HomePage />} />
-          <Route path="/catalog" element={<CatalogPage />} />
-          <Route path="/resource/:barcode" element={<ResourcePage />} />
-          <Route path="/profile/:userId" element={<ProfilePage />} />
-          <Route path='/create-book' element={<CreateBookForm />} />
-        </Route>
-      </Routes>
-    </AnimatePresence>
-   </BrowserRouter>
+      <BrowserRouter>
+      <AnimatePresence mode='wait'>
+          <Routes>
+            <Route path="/" element={<LayoutPage />}>
+              <Route path="" element={<HomePage />} />
+              <Route path="/catalog" element={<CatalogPage />} />
+              <Route path="/resource/:barcode" element={<ResourcePage />} />
+              <Route path="/profile/:userId" element={<ProfilePage />} />
+              <Route path='/create-book' element={<CreateBookForm />} />
+            </Route>
+          </Routes>
+        </AnimatePresence>
+      </BrowserRouter>
   )
 }
 
