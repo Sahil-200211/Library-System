@@ -12,7 +12,6 @@ import BookSummaryCard from "../../../../components/BookSummary/BookSummary";
 export const BookOverview:React.FC = () => {
     const bookState = useSelector((state:RootState) => state.book);
     const user = useSelector((state:RootState) => state.authentication.loggedInUser);
-    const books = useSelector((state:RootState) => state.book.books); // Retrieve books from Redux state
 
     return (
         <div className="book-overview">

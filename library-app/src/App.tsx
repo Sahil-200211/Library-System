@@ -10,6 +10,7 @@ import CatalogPage from './pages/CatalogPage/CatalogPage';
 import ResourcePage from './pages/ResourcePage/ResourcePage';
 import CreateBookForm from './pages/BookForm/BookForm';
 import { AnimatePresence } from 'framer-motion';
+import FloatingChatbot from './components/FloatingChatbot/FloatingChatbot';
 
 function App() {
   
@@ -32,7 +33,7 @@ function App() {
       <BrowserRouter>
       <AnimatePresence mode='wait'>
           <Routes>
-            <Route path="/" element={<LayoutPage />}>
+            <Route path="/" element={<LayoutPage />}> 
               <Route path="" element={<HomePage />} />
               <Route path="/catalog" element={<CatalogPage />} />
               <Route path="/resource/:barcode" element={<ResourcePage />} />
@@ -41,6 +42,8 @@ function App() {
             </Route>
           </Routes>
         </AnimatePresence>
+
+        <FloatingChatbot />
       </BrowserRouter>
   )
 }

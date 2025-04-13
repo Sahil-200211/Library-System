@@ -5,6 +5,7 @@ import {config} from './config';
 import {registerRoutes} from './routes';
 import dotenv from 'dotenv';
 import summarizeRouter from './routes/summarizebyTitle';
+import chatRouter from './routes/chat';
 
 dotenv.config();
 
@@ -15,6 +16,7 @@ const app: Express = express();
 app.use(express.json());
 app.use(cors());
 app.use('/api', summarizeRouter);
+app.use('/api', chatRouter);
 
 (async function startup(){
     try{

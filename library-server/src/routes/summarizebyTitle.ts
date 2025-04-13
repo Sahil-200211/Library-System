@@ -30,11 +30,11 @@ router.post(
             },
             {
               role: 'user',
-              content: `Please summarize the book titled "${title}". Also, can you not say "here is the summary". Make sure you use plain text without any bold or italics.`
+              content: `Please summarize the book titled "${title}". Also, can you not say "here is the summary".`
             },
           ],
           temperature: 0.7,
-          max_tokens: 300,
+          max_tokens: 500,
           stream: false, // set to true if you later want streaming
         },
         {
