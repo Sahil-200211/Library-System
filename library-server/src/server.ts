@@ -3,6 +3,10 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import {config} from './config';
 import {registerRoutes} from './routes';
+import dotenv from 'dotenv';
+import summarizeRouter from './routes/summarizebyTitle';
+
+dotenv.config();
 
 const PORT = config.server.port;
 
@@ -10,6 +14,7 @@ const app: Express = express();
 
 app.use(express.json());
 app.use(cors());
+app.use('/api', summarizeRouter);
 
 (async function startup(){
     try{

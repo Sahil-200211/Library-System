@@ -6,18 +6,20 @@ import { RootState } from "../../../../redux/ReduxStore";
 import { BookInformation } from "../BookInformation/BookInformation";
 import { BookSubjects } from "../BookSubjects/BookSubjects";
 import { BookAdditionalInfo } from "../BookAdditionalInfo/BookAdditionalInfo";
-import { BookHistoryItem } from "../BookHistoryItem/BookHistoryItem";
 import { BookHistory } from "../BookHistory/BookHistory";
+import BookSummaryCard from "../../../../components/BookSummary/BookSummary";
 
 export const BookOverview:React.FC = () => {
     const bookState = useSelector((state:RootState) => state.book);
     const user = useSelector((state:RootState) => state.authentication.loggedInUser);
+    const books = useSelector((state:RootState) => state.book.books); // Retrieve books from Redux state
 
     return (
         <div className="book-overview">
             {
                 bookState.currentBook && !bookState.loading && 
                 <>
+                    <BookSummaryCard title={bookState.currentBook.title} />
                     <BookInformation book={bookState.currentBook} />
                     <BookSubjects subjects={bookState.currentBook.subjects} />
                     <BookAdditionalInfo book={bookState.currentBook} />
