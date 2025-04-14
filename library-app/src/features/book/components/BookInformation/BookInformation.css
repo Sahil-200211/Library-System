@@ -16,3 +16,61 @@
     width: 320px;
     margin-right: 24px;
 }
+
+.review-section {
+    margin-top: 2rem;
+    background: #f7f9fc;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.review-section input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+
+.rating-input {
+    margin-bottom: 0.5rem;
+}
+
+.rating-input span:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+
+textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-bottom: 0.5rem;
+    resize: vertical;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.reviews-list {
+    margin-top: 2rem;
+}
+
+.review-item {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+}

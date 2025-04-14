@@ -6,6 +6,7 @@ import {registerRoutes} from './routes';
 import dotenv from 'dotenv';
 import summarizeRouter from './routes/summarizebyTitle';
 import chatRouter from './routes/chat';
+import reviewRoutes from './routes/Review';
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ app.use(express.json());
 app.use(cors());
 app.use('/api', summarizeRouter);
 app.use('/api', chatRouter);
+app.use('/api/reviews', reviewRoutes);
 
 (async function startup(){
     try{

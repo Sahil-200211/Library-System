@@ -49,7 +49,8 @@ export const BookOfTheWeek:React.FC = () => {
                 pages: 560,
                 genre: "Fantasy",
                 records: [],
-            }}/>
+            }}
+            showReviews={false}/>
         </div>
     )
 }
