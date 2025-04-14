@@ -6,9 +6,9 @@ import { AppDispatch, RootState } from '../../../../redux/ReduxStore';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDisplayLogin } from '../../../../redux/slices/ModalSlice';
 
-import { LocalLibrary, Search } from '@mui/icons-material';
+import { Search } from '@mui/icons-material';
 import { Box, Button, IconButton, InputBase, Paper, Typography } from '@mui/material';
-import { motion } from 'framer-motion';
+
 
 
 export const Navbar: React.FC = () => {
@@ -44,15 +44,24 @@ export const Navbar: React.FC = () => {
 
     return (
     <nav className="navbar">
-        <motion.div
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}>
             <Link to="/" className="navbar-logo-section">
-                <LocalLibrary sx={{ fontSize: "3rem" }} />
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="black"
+                    className="animated-stroke logo-icon"
+                    style={{ width: "3rem", height: "3rem" }}
+                    >
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
+                    />
+                </svg>
                 <Typography variant="h4" sx={{ marginLeft: "8px", fontWeight: "bold" }}>Scriptoria</Typography>
             </Link>
-        </motion.div>
 
         <Box className="navbar-option-section">
             <Link to="/catalog" className="navbar-option navbar-link">

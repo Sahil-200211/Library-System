@@ -1,22 +1,25 @@
 import React from "react";
 
 import './UpcomingEvents.css';
-import { AutoAwesome } from "@mui/icons-material";
 import { Typography } from "@mui/material";
 
 export const UpcomingEvents:React.FC = () => {
     return (
         <div className="upcoming-events-event">
             <div className="upcoming-events-header-group">
-                <AutoAwesome sx={{
-                    fontSize:"2.25rem",
-                    color: "#3626A7" 
-                }} />
+               <svg xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    className="sparkle-svg">
+                    <path d="M11.644 1.94a.75.75 0 011.347 0l1.633 3.306a.75.75 0 00.336.336l3.306 1.634a.75.75 0 010 1.347l-3.306 1.633a.75.75 0 00-.336.336l-1.633 3.306a.75.75 0 01-1.347 0l-1.633-3.306a.75.75 0 00-.336-.336L6.705 8.563a.75.75 0 010-1.347l3.306-1.633a.75.75 0 00.336-.336L11.644 1.94zM5.75 15a.75.75 0 01.75.75v.042c0 .875.709 1.583 1.583 1.583h.042a.75.75 0 010 1.5h-.042a3.083 3.083 0 01-3.083-3.083v-.042a.75.75 0 01.75-.75zm13.5 1.5a.75.75 0 00-.75.75v.042a3.083 3.083 0 01-3.083 3.083h-.042a.75.75 0 000 1.5h.042a4.583 4.583 0 004.583-4.583v-.042a.75.75 0 00-.75-.75z"/>
+                </svg>
                 <Typography variant="h2" fontWeight={700}>Upcoming Events</Typography>
-                <AutoAwesome sx={{
-                    fontSize:"2.25rem",
-                    color: "#3626A7"
-                }} />
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    className="sparkle-svg">
+                    <path d="M11.644 1.94a.75.75 0 011.347 0l1.633 3.306a.75.75 0 00.336.336l3.306 1.634a.75.75 0 010 1.347l-3.306 1.633a.75.75 0 00-.336.336l-1.633 3.306a.75.75 0 01-1.347 0l-1.633-3.306a.75.75 0 00-.336-.336L6.705 8.563a.75.75 0 010-1.347l3.306-1.633a.75.75 0 00.336-.336L11.644 1.94zM5.75 15a.75.75 0 01.75.75v.042c0 .875.709 1.583 1.583 1.583h.042a.75.75 0 010 1.5h-.042a3.083 3.083 0 01-3.083-3.083v-.042a.75.75 0 01.75-.75zm13.5 1.5a.75.75 0 00-.75.75v.042a3.083 3.083 0 01-3.083 3.083h-.042a.75.75 0 000 1.5h.042a4.583 4.583 0 004.583-4.583v-.042a.75.75 0 00-.75-.75z"/>
+                </svg>
             </div>
             <Typography variant="h3" fontWeight={650}>This Summer</Typography>
             <h4>Tuesday's : 10 AM - 12 PM</h4>

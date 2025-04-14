@@ -31,3 +31,28 @@ h3 {
     padding: 16px;
     margin-top:12px ;
 }
+
+.sparkle-svg {
+    width: 2.25rem;
+    height: 2.25rem;
+    color: #3626A7;
+    animation: sparkleGlow 2s ease-in-out infinite;
+    transition: transform 0.3s ease;
+  }
+  
+  @keyframes sparkleGlow {
+    0%, 100% {
+      transform: scale(1);
+      filter: drop-shadow(0 0 0px #3626A7);
+    }
+    50% {
+      transform: scale(1.2);
+      filter: drop-shadow(0 0 6px #3626A7aa);
+    }
+  }
+  
+  .sparkle-svg:hover {
+    transform: scale(1.3) rotate(8deg);
+    filter: drop-shadow(0 0 10px #fff);
+  }
+  
