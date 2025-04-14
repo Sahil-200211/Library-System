@@ -1,0 +1,29 @@
+/* MouseTrail.css */
+.mouse-trail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* Prevents the mouse trail from blocking interactions with other elements */
+    z-index: 9999; /* Ensure it's above all other content */
+  }
+  
+  .mouse-trail-sparkle {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: sparkle-fade 1s ease-out forwards;
+    user-select: none;
+  }
+  
+  @keyframes sparkle-fade {
+    0% {
+      opacity: 0.5;
+      transform: scale(0.5) rotate(0deg);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.5) rotate(180deg);
+    }
+  }
+  

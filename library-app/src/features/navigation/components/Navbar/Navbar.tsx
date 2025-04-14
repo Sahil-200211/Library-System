@@ -104,7 +104,7 @@ export const Navbar: React.FC = () => {
                                 fontSize: "18px", 
                                 borderRadius: "10px",
                                 transition: 'all 0.3s ease-in-out',
-                                '&:hover': { transform: 'scale(1.05)' },
+                                '&:hover': { transform: 'scale(1.05)'},
                             }}
                         >
                             Book Creation

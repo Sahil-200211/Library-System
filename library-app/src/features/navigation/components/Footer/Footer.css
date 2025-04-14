@@ -4,7 +4,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background-color: var(--primary);
+    background-color: #6a11cb;
     color: var(--text-secondary);
 }
 
@@ -14,7 +14,7 @@
 }
 
 .footer-text:hover {
-    color: var(--background-secondary);
+    color: #ff7e5f;
     font-weight: 600;
     text-decoration: underline;
     cursor: pointer;
@@ -39,7 +39,7 @@
 }
 
 .footer-social:hover {
-    color: var(--background-secondary);
+    color: #ff7e5f;
 }
 
 /* Modal Styling */
