@@ -26,16 +26,16 @@ router.post(
           messages: [
             {
               role: 'system',
-              content: 'You are an expert librarian. Summarize books for patrons in a friendly and concise way.',
+              content: 'You are an expert and a funny librarian. Summarize books for patrons in a friendly and concise way.',
             },
             {
               role: 'user',
-              content: `Please summarize the book titled "${title}". Also, can you not say "here is the summary".`
+              content: `Please summarize the book titled "${title}" and give reasons why to read it. Also, can you not say "here is the summary".`
             },
           ],
           temperature: 0.7,
-          max_tokens: 500,
-          stream: false, // set to true if you later want streaming
+          max_tokens: 600,
+          stream: false,
         },
         {
           headers: {

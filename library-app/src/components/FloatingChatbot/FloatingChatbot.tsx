@@ -11,15 +11,15 @@ import {
   import ChatIcon from '@mui/icons-material/Chat';
   import CloseIcon from '@mui/icons-material/Close';
   import SendIcon from '@mui/icons-material/Send';
-  import ReactMarkdown from 'react-markdown';
   import { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
   
   export default function FloatingChatbot() {
     const [isOpen, setIsOpen] = useState(false);
     const [chat, setChat] = useState<{ sender: string; text: string }[]>([]);
     const [input, setInput] = useState('');
     const [loading, setLoading] = useState(false);
-  
+    
     const toggleChat = () => setIsOpen(prev => !prev);
   
     const sendMessage = async () => {
@@ -73,8 +73,8 @@ import {
               position: 'fixed',
               bottom: 90,
               right: 24,
-              width: 350,
-              height: 450,
+              width: 400,
+              height: 500,
               display: 'flex',
               flexDirection: 'column',
               p: 2,
@@ -92,13 +92,14 @@ import {
                 <Typography
                   key={i}
                   variant="body2"
+                  component="div"
                   sx={{
                     textAlign: msg.sender === 'user' ? 'right' : 'left',
                     color: msg.sender === 'user' ? 'primary.main' : 'text.secondary',
                     mb: 1,
                   }}
                 >
-                  <ReactMarkdown>{msg.text}</ReactMarkdown>
+                <ReactMarkdown>{msg.text}</ReactMarkdown>
                 </Typography>
               ))}
             </Box>
