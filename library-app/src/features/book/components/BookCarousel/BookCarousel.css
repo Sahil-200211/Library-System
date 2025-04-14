@@ -1,7 +1,21 @@
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%; 
+    }
+    50% {
+        background-position: 100% 50%; 
+    }
+    100% {
+        background-position: 0% 50%; 
+    }
+}
+
  .book-carousel {
     width: 100%;
     height: 425px;
-    background-color: var(--background-secondary);
+    background:linear-gradient(270deg, #92ccdd, #c7eff0, #fdc4ec, #ffc2cb);
+    background-size: 400% 400%;
+    animation: gradientAnimation 20s ease infinite;
     box-shadow: var(--box-shadow);
     display: flex;
     justify-content: center;
