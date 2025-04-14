@@ -21,11 +21,13 @@ export async function generateRecord(record:ILoanRecord): Promise<ILoanRecordMod
     }
 }
 
-export async function modifyRecord(record:ILoanRecordModel):Promise<ILoanRecordModel> {
+export async function modifyRecord(record: ILoanRecordModel): Promise<ILoanRecordModel> {
     try {
-        let updatedRecord = await LoanRecordDao.findOneAndUpdate({_id: record._id}, record, {new:true});
+        // Update the loan record in the database
+        let updatedRecord = await LoanRecordDao.findOneAndUpdate({ _id: record._id }, record, { new: true });
 
-        if(updatedRecord) {
+        if (updatedRecord) {
+            // After updating, update the book's records as well
             let book = await findBookById(record.item);
             let records = book.records;
 
@@ -37,11 +39,13 @@ export async function modifyRecord(record:ILoanRecordModel):Promise<ILoanRecordM
             return updatedRecord;
         }
 
-        throw new Error();
-    } catch(error) {
+        throw new Error("Record not found");
+    } catch (error) {
+        console.error(error);
         throw error;
     }
 }
+
 
 export async function findAllRecords():Promise<ILoanRecordModel[]>{
     try {
