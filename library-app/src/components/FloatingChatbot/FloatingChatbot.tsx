@@ -57,9 +57,9 @@ import ReactMarkdown from 'react-markdown';
           }}
         >
           <IconButton
-            color="primary"
-            size="large"
-            sx={{ bgcolor: 'white', boxShadow: 3 }}
+            color="inherit"
+            size='large'
+            sx={{ bgcolor: 'springgreen', boxShadow: 3}}
             onClick={toggleChat}
           >
             {isOpen ? <CloseIcon /> : <ChatIcon />}
