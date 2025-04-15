@@ -7,3 +7,13 @@
     background-color: var(--background-primary);
     margin-top: 5px;
 }
+
+.book-info-fade {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.book-info-fade-in {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}

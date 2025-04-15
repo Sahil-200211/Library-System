@@ -1,4 +1,4 @@
-import { BookOfTheWeek, UpcomingEvents, LibraryCard, LibraryHours, ContactUs } from "../../features/landing";
+import { FeaturedBooks, UpcomingEvents, LibraryCard, LibraryHours, ContactUs } from "../../features/landing";
 import { motion } from "framer-motion";
 
 import './HomePage.css'
@@ -16,7 +16,7 @@ export default function HomePage(){
             <div className="page">
                 <div className="home-page-container">
                     <div className="home-page-left">
-                        <BookOfTheWeek />
+                        <FeaturedBooks />
                         <UpcomingEvents />
                         <LibraryCard />
                     </div>
