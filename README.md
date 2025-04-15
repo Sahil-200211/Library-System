@@ -16,7 +16,7 @@ Welcome to Scriptoria, your modern, magical, and mighty library management syste
 
     💬 Chatbot Support – Local AI chatbot using LMStudio
 
-    ❤️ Easter Eggs – Like a Mr. Bean YouTube surprise. Go find it.
+    ❤️ Easter Eggs – Like Mr. Bean ? Go find him.
 
 🛠️ Tech Stack
     Layer	Tech
