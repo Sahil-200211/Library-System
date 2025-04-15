@@ -1,6 +1,7 @@
 📖 Scriptoria - Library Management System
 
 Welcome to Scriptoria, your modern, magical, and mighty library management system built with the MERN Stack + TypeScript! Think of it as a Hogwarts for books — complete with slick UI, smart features, and a sprinkle of goofy charm.
+
 🚀 Features
 
     ✨ Modern UI/UX – Built with React + MUI + custom CSS animations
@@ -18,13 +19,13 @@ Welcome to Scriptoria, your modern, magical, and mighty library management syste
     ❤️ Easter Eggs – Like a Mr. Bean YouTube surprise. Go find it.
 
 🛠️ Tech Stack
-Layer	Tech
-Frontend	React + Vite + TypeScript + MUI
-Backend	Express.js + Node.js
-Database	MongoDB
-State	Redux Toolkit
-Styling	MUI + Custom CSS (with animations & hover magic)
-AI Bot	Local LLM powered by LMStudio
+    Layer	Tech
+    Frontend	React + Vite + TypeScript + MUI
+    Backend	Express.js + Node.js
+    Database	MongoDB
+    State	Redux Toolkit
+    Styling	MUI + Custom CSS (with animations & hover magic)
+    AI Bot	Local LLM powered by LMStudio
 
 
 🧠 How It Works
@@ -42,7 +43,7 @@ AI Bot	Local LLM powered by LMStudio
     A chatbot waits to chat in /routes/chat.ts connected to a local LMStudio server.
 
 
-    🧪 Future Features
+🧪 Future Features
 
     ✅ Wishlist a book
 
