@@ -14,9 +14,9 @@
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(270deg, #24125f, #5c03bc, #e536ab, #f4e5f0);
+    background: linear-gradient(270deg, #133a94, #ef745c, #ad336d);
     background-size: 400% 400%;
-    animation: gradientAnimation 3s ease infinite;
+    animation: gradientAnimation 4s ease infinite;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,8 +24,9 @@
     z-index: 9999;
   }
   
-  .logo-icon {
-    animation: draw-logo 2s ease-out forwards;
+  .logo-icon-1 {
+    animation: draw-logo 10s ease-out forwards;
+    color: white;
   }
   
   @keyframes draw-logo {
@@ -41,7 +42,7 @@
   
   .splash-title {
     font-family: 'Georgia', serif;
-    color: #000000;
+    color: #ffffff;
     font-size: 5rem;
     margin-top: 20px;
     opacity: 0;

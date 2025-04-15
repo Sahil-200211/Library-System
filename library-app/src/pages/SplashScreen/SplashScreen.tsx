@@ -13,14 +13,13 @@ const SplashScreen: React.FC = () => {
 
   return (
     <div className="splash-screen">
-      {/* Your SVG Logo with animated stroke */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
         strokeWidth="1.5"
-        stroke="black"
-        className="animated-stroke logo-icon"
+        stroke="currentColor"
+        className="animated-stroke logo-icon-1"
         style={{ width: "150px", height: "150px" }}
       >
         <path
