@@ -1,7 +1,9 @@
-// routes/chat.ts
+
 import express from 'express';
 import axios from 'axios';
 import Chatlog from '../models/Chatlog';
+import BookDao from '../daos/BookDao';
+import { parsePrompt } from '../utils/parsePrompt';
 
 const router = express.Router();
 
@@ -15,9 +17,43 @@ router.post(
       return;
     }
 
-    let reply = ''; // Declare reply in a broader scope
+    let reply = ''; 
 
     try {
+
+      let dbResult: string | null = null;
+      const intent = parsePrompt(message);
+      const today = new Date();
+  
+      switch (intent) {
+        case 'GET_OVERDUE_BOOKS': {
+          const books = await BookDao.find({ dueDate: { $lt: today }, returned: false });
+          dbResult = `Overdue books: ${books.map(b => b.title).join(', ') || 'None 🎉'}`;
+          break;
+        }
+  
+        case 'COUNT_OVERDUE_BOOKS': {
+          const count = await BookDao.countDocuments({ dueDate: { $lt: today }, returned: false });
+          dbResult = `There are currently ${count} overdue books.`;
+          break;
+        }
+  
+        case 'LIST_BOOKS_DUE_THIS_WEEK': {
+          const oneWeekFromNow = new Date();
+          oneWeekFromNow.setDate(today.getDate() + 7);
+          const books = await BookDao.find({
+            dueDate: { $gte: today, $lte: oneWeekFromNow },
+            returned: false,
+          });
+          dbResult = `Books due this week: ${books.map(b => b.title).join(', ') || 'None 🎉'}`;
+          break;
+        }
+      }
+  
+      const finalPrompt = dbResult
+        ? `${message}\n\nRelevant data from the library:\n${dbResult}\n\nRespond accordingly.`
+        : message;
+
       const response = await axios.post('http://localhost:1234/v1/chat/completions', {
         model: 'gemma-3-1b-it',
         messages: [
@@ -36,7 +72,7 @@ router.post(
     await Chatlog.create({
       userMessage: message,
       gemmaResponse: reply,
-      timestamp: new Date(), // optional, the schema can handle default
+      timestamp: new Date(), 
     });
   }
 );
