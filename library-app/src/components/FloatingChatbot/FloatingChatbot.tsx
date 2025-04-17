@@ -73,8 +73,8 @@ import ReactMarkdown from 'react-markdown';
               position: 'fixed',
               bottom: 90,
               right: 24,
-              width: 400,
-              height: 500,
+              width: 1500,
+              height: 600,
               display: 'flex',
               flexDirection: 'column',
               p: 2,
@@ -84,7 +84,7 @@ import ReactMarkdown from 'react-markdown';
             }}
           >
             <Typography variant="h6" mb={1}>
-              🤖 Ask the Librarian
+              👩🏼‍🦰 Ask Hailee Anything
             </Typography>
   
             <Box sx={{ flexGrow: 1, overflowY: 'auto', mb: 1 }}>

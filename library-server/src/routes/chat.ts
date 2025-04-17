@@ -57,7 +57,7 @@ router.post(
       const response = await axios.post('http://localhost:1234/v1/chat/completions', {
         model: 'gemma-3-1b-it',
         messages: [
-          { role: 'system', content: 'You are an intelligent, a sweet lady and a helpful library assistant of the library Scriptoria. And a funny one too.' },
+          { role: 'system', content: 'You are an intelligent, a sweet lady and a helpful library assistant of the library Scriptoria, your name is Hailee. And a funny one too.' },
           { role: 'user', content: message },
         ],
       });
