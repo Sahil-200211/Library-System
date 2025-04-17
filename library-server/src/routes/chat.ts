@@ -1,6 +1,7 @@
 // routes/chat.ts
 import express from 'express';
 import axios from 'axios';
+import Chatlog from '../models/Chatlog';
 
 const router = express.Router();
 
@@ -14,6 +15,8 @@ router.post(
       return;
     }
 
+    let reply = ''; // Declare reply in a broader scope
+
     try {
       const response = await axios.post('http://localhost:1234/v1/chat/completions', {
         model: 'gemma-3-1b-it',
@@ -23,12 +26,18 @@ router.post(
         ],
       });
 
-      const reply = response.data.choices?.[0]?.message?.content || 'No response';
+      reply = response.data.choices?.[0]?.message?.content || 'No response';
       res.json({ reply });
     } catch (err: any) {
       console.error('Chat error:', err.message);
       res.status(500).json({ error: 'Chat failed' });
     }
+
+    await Chatlog.create({
+      userMessage: message,
+      gemmaResponse: reply,
+      timestamp: new Date(), // optional, the schema can handle default
+    });
   }
 );
 
